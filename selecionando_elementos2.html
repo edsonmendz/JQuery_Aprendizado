@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+<body>
+    
+    <input class="exemplo1" type="text" placeholder="Campo 1">
+    <input type="text" placeholder="Campo 2">
+    <input type="text" placeholder="Campo 3">
+
+    <div class="exemplo1">Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+
+    <ul class="lista1">
+        <li >Opção 1</li>
+        <li class="exemplo2">Opção 2</li>
+        <li class="exemplo2">Opção 3</li>
+    </ul>
+
+    <ul class="lista2">
+        <li class="exemplo2">Opção 1</li>
+        <li class="exemplo2">Opção 2</li>
+        <li>Opção 3</li>
+    </ul>
+
+    
+</body>
+    <script>
+       // combinação de seletores
+        console.log($('.lista1 .exemplo2'))
+
+       // atuação sobre o array de retorno dos elementos selecionados
+
+       console.log($('ul.lista1 li.exemplo2:first'))
+       console.log($('ul.lista1 li.exemplo2:last'))
+       console.log($('ul.lista1 li.exemplo2:odd'))
+       console.log($('ul.lista1 li.exemplo2:even'))
+    </script>    
+</html>
