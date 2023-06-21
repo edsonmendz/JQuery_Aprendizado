@@ -9,7 +9,9 @@
     <script>
         $(document).ready(function() {
            
-            
+            $.each($('.interesse:checked'), (indice, valor) => {
+                console.log(indice, valor.value)
+            })
 
         })
     </script>
@@ -37,8 +39,8 @@
     <p>Interesses</p>
     <input type="checkbox" name="interesse" class="interesse" value="php" >PHP</input>
     <input type="checkbox" name="interesse" class="interesse" value="js" >Javascrips</input>
-    <input type="checkbox" name="interesse" class="interesse" value="php" >Angular</input>
-    <input type="checkbox" name="interesse" class="interesse" value="php" >PHP</input>
+    <input type="checkbox" name="interesse" class="interesse" value="ang" >Angular</input>
+    <input type="checkbox" name="interesse" class="interesse" value="node" >NodeJS</input>
     
 </body>
       

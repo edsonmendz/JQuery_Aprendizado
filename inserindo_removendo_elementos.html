@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+           
+           $('#lista1').prepend('<li>Item 51</li>')
+           $('#linha').after('<p>eu fui inserido após à linha</p>')
+
+           //before, prepend, append, after
+           //html, remove()
+           
+
+        })
+    </script>
+</head>
+<body>
+    
+    <ul id="lista1">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    
+    <div id="lista2">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+    </div>
+    <hr id="linha">
+</body>
+      
+</html>
