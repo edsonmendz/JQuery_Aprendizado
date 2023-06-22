@@ -10,7 +10,63 @@
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script>
+			$(document).ready(()=>{
 
+				$('#onload').html('página carregada')
+				$(window).scroll(()=> {
+					$('#scroll').html('Scroll acionado')
+				})
+				$(window).resize(()=> {
+					$('#resize').html('página redimensionada').css('background-color', 'purple').css('color','white')
+				})
+
+				// THIS pode ser usado dentro da função de callback
+				$('#div1').scroll(e => {
+					$(e.target).css('background-color', 'blue')
+				})
+
+				//mousedown, mouseup, click, dblclick
+
+				$('#btn1').mousedown( () => {
+					$('#div2').css('background-color', 'green')
+				})
+
+				//mousemove, mouseenter, mouseleave, mouseover, mouseout
+				//mouseenter e mouseleave mais eficientes que mouseover e ouseout
+				//por evitar efeito bubble ao utilizar hierarquia de elementos
+				//visível através do console.log()
+				$('#div2').mousemove( (e) => {
+					console.log(e.offsetX, e.offsetY);
+					$('#resultadoDiv').html('X =' + e.offsetX + ' e Y: ' + e.offsetY)
+				})
+
+				// keydown, keyup
+				// $('#teclado').keydown( () => {
+				// 	$('#resultadoTecla').html('Tecla pressionada')
+				// })
+
+				$('#teclado').keyup((e) => {
+					console.log($(e.keyCode))
+					if(e.keyCode < 49 || e.keyCode > 52) {
+						let txt = $(e.target).val()
+						txt = txt.slice(0, -1)
+
+						$(e.target).val(txt)
+					}
+				})
+
+				/*
+				$('#teclado').keyup((e) => {
+					$('#resultadoTecla').html('Tecla liberada')
+
+					if (e.keyCode == 13) {
+						let txt = $(e.target).val()
+						$('#resultadoTecla').html(txt)
+						$(e.target).val('')
+					}
+				})
+				*/
+			})
 		</script>
 	</head>
 
@@ -22,22 +78,25 @@
 
 		<div>
 			<h3>Browser</h3>
-			<span>Onload: </span><span>?</span><br />
-			<span>Scroll: </span><span>?</span><br />
-			<span>Window: </span><span>?</span>
+			<span>Onload: </span><span id="onload">?</span><br />
+			<span>Scroll: </span><span id="scroll">?</span><br />
+			<span>Resize window: </span><span id="resize">?</span>
+			<div style="height: 100px; width: 100px; border: solid 1px; overflow-y: scroll;" id="div1">
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
 			<hr />
 
 			<h3>Mouse</h3>
-			<button type="button">Clique aqui</button>
+			<button id="btn1" type="button">Clique aqui</button>
 			<button type="button">Clique aqui 2x</button>
-			<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
-			<span>Resultado do evento sobre a div</span>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span> <span id="resultadoDiv"></span>
 			<hr />
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
-			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<input id="teclado" type="text" />
+			<span id="resultadoTecla">Resultado do evento sobre o input</span>
 			<hr />
 
 			<h3>Formulário</h3>
