@@ -5,6 +5,12 @@
 		<title>jQuery</title>
 
 		<style>
+			.inputFocado {
+				background-color: red;
+			}
+			.inputDesfocado {
+				background-color: white;
+			}
 			
 		</style>
 
@@ -66,6 +72,38 @@
 					}
 				})
 				*/
+
+				$('#nome').focus((e) => {
+					console.log('esse nome recebeu foco')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#email').focus((e) => {
+					console.log('esse email recebeu foco')
+					$(e.target).addClass('inputFocado')
+				})
+
+				// podendo ser usado removeClass
+
+				$('#nome').blur((e) => {
+					console.log('esse nome perdeu o foco')
+					$(e.target).addClass('inputDesfocado')
+				})
+
+				$('#email').blur((e) => {
+					console.log('esse email perdeu o foco')
+					$(e.target).addClass('inputDesfocado')
+				})
+
+				$('#opcao').change((e) => {
+					console.log($(e.target).val())
+				})
+
+				$('#form').submit((e) => {
+					e.preventDefault()
+					console.log('Formulário enviado')
+				})
+
 			})
 		</script>
 	</head>
@@ -99,22 +137,25 @@
 			<span id="resultadoTecla">Resultado do evento sobre o input</span>
 			<hr />
 
+
+
+
 			<h3>Formulário</h3>
-			<form>
+			<form id="form">
 				<span>Nome:</span>
-				<input type="text" />
+				<input id="nome" type="text" />
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input id="email" type="text" />
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao">
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
 		</div>
 	</body>
